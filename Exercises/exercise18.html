@@ -1,0 +1,31 @@
+<html>
+<head>
+  <title>Exercise 17</title>
+  <style type="text/css">
+    #div4 { width:100px; height:100px; background-color:mediumpurple; margin:10px 0 10px 0;}
+    #div5 { width:100px; height:100px; background-color:gold;}
+  </style>
+  <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready( function() {
+      $("h2").click(function(){ 
+        $(this).css("font-style","italic"); 
+      });
+    });
+  </script>
+</head>
+<body>
+  <h2>
+    Exercise 18</h2>
+  <div id="div1">Hide this line</div>
+  <div id="div2">Make this line bold</div>
+  <div id="div3">Old text</div>
+  <p> This is a paragraph </p>
+  <p> This is another paragraph </p>
+  <p> Click any paragraph and turn it red!</p>
+  <input type=button id=out value="Fade Out!">&nbsp;
+  <input type=button id=in value="Fade In!">
+  <div id="div4"></div>
+  <div id="div5"></div>
+</body>
+</html>

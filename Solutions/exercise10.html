@@ -1,0 +1,31 @@
+<html>
+<head>
+  <title>Exercise 10</title>
+  <script type="text/javascript">
+    function convertToCelsius(degreesf)
+    {
+      var result = (parseFloat(degreesf) - 32) * 5 / 9;
+      return parseInt(result);
+    }
+    function convertToFahrenheit(degreesc)
+    {
+      var result = parseFloat(degreesc) * 9 / 5 + 32;
+      return parseInt(result);
+    }        
+  </script>
+</head>
+<body>
+  <h2>
+    Exercise 10</h2>
+  <form action="" name="temperature">
+  Degrees Celsius :
+  <input type="text" name="celsius" value="" onblur="temperature.fahrenheit.value=convertToFahrenheit (temperature.celsius.value)">
+  <input type="button" value="convert" onclick="temperature.fahrenheit.value=convertToFahrenheit (temperature.celsius.value)" />
+  <br>
+  Degrees Fahrenheit :
+  <input type="text" name="fahrenheit" value="" onblur="temperature.celsius.value=convertToCelsius (temperature.fahrenheit.value)">
+  <input type="button" value="convert" onclick="temperature.celsius.value=convertToCelsius (temperature.fahrenheit.value)">
+  </form>
+  This is the last line of the page
+</body>
+</html>

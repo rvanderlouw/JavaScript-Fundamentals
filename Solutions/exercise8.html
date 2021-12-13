@@ -1,0 +1,47 @@
+<html>
+<head>
+  <title>Exercise 8</title>
+  <script type="text/javascript">
+    function start()
+    {
+      document.getElementById("div1").style.fontWeight = "bold";
+      document.getElementById("div2").style.color = "blue";
+      document.getElementById("div3").style.marginLeft = "10%";
+      document.getElementById("div4").innerHTML = "<i>This is a dynamic line of text</i>";
+      var divs = document.getElementsByTagName("div")
+
+      for (var i = 0; i < divs.length;i++ ) {
+        divs[i].style.backgroundColor = "gold";
+      }
+      document.getElementById("div2").style.display = "none";
+
+      var d5 = document.getElementById('div5');
+      for (var i = 1; i <= 3; i++) {
+        var p = document.createElement('p');
+        p.innerHTML = "This is paragraph number " +i;
+        d5.appendChild(p);
+      }
+    }
+  </script>
+</head>
+<body onload="start()">
+  <h2>
+    Exercise 8</h2>
+  <div id="div1">
+    This is a first bit of text
+  </div>
+  <div id="div2">
+    This is the second part<br />
+    This is the second part<br />
+    This is the second part<br />
+    This is the second part<br />
+    This is the second part<br />
+  </div>
+  <div id="div3">
+    This is a final part of text
+  </div>
+  <div id="div4"></div>
+  <div id="div5"></div>
+  This is the last line of the page
+</body>
+</html>

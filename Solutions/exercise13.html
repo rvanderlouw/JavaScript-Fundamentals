@@ -1,0 +1,140 @@
+<html>
+<head>
+  <title>Exercise 13</title>
+  <script type="text/javascript">
+    function test()
+    {
+      testform.text1.value = testform.text1.value.toUpperCase();
+      if (testform.text2.value.length >= 3)
+        testform.text2.value = testform.text2.value.substr(0, 3);
+      var l = testform.text3.value.length;
+      if (l >= 3)
+        testform.text3.value = testform.text3.value.substring(l - 3, l);
+      var s1 = testform.text4.value, s2 = "";
+      for (var i = 0; i < s1.length; i++) {
+        s2 = s1.charAt(i) + s2;
+      }
+      testform.text4.value = s2;
+      if (testform.text5.value.length > 0 && !isNaN(testform.text5.value))
+        testform.text5.value = Math.sqrt(parseFloat(testform.text5.value));
+      var d1 = new Date();
+      testform.text6.value = d1.toLocaleString();
+      testform.text7.value = d1.getFullYear();
+      var d2 = new Date(2000, 3, 30); // April is month 3!!
+      testform.text8.value = Math.floor((d1.getTime() - d2.getTime()) / (1000 * 60 * 60 * 24));
+      var d3 = new Date(d1.getFullYear(), d1.getMonth(), d1.getDate());
+      testform.text9.value = Math.round((d1.getTime() - d3.getTime()) / 1000);
+      // optional part
+      var words = testform.text10.value.split(" ");
+      if (words.length > 2)
+        testform.text10.value = words[2];
+      else
+        testform.text10.value = "<sentence too short>";
+      var weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      testform.text11.value = weekdays[d1.getDay()];
+    }    
+  </script>
+</head>
+<body>
+  <h2>
+    Exercise 13</h2>
+  <form action="" name="testform">
+  <table>
+    <tr>
+      <td>
+        Convert to uppercase:
+      </td>
+      <td>
+        <input type="text" name="text1" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Leave only the first three characters:
+      </td>
+      <td>
+        <input type="text" name="text2" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Leave only the last three characters:
+      </td>
+      <td>
+        <input type="text" name="text3" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Reverse this text:
+      </td>
+      <td>
+        <input type="text" name="text4" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Replace this number by its square root:
+      </td>
+      <td>
+        <input type="text" name="text5" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Put the current (local) date and time here:
+      </td>
+      <td>
+        <input type="text" name="text6" style="width: 180pt" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Put the current year here:
+      </td>
+      <td>
+        <input type="text" name="text7" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Calculate how many complete days have elapsed since April 30, 2000:
+      </td>
+      <td>
+        <input type="text" name="text8" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Calculate how many seconds have elapsed since midnight:
+      </td>
+      <td>
+        <input type="text" name="text9" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Retrieve the third word from this sentence:
+      </td>
+      <td>
+        <input type="text" name="text10" style="width: 200pt" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Show the current day of the week:
+      </td>
+      <td>
+        <input type="text" name="text11" />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center">
+        <input type="button" style="font-size: larger" value="Try it!" onclick="test()" />
+      </td>
+    </tr>
+  </table>
+  </form>
+  This is the last line of the page
+</body>
+</html>

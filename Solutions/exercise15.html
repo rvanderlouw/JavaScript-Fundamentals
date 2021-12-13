@@ -1,0 +1,180 @@
+<html>
+<head>
+  <title>Exercise 15</title>
+  <script type="text/javascript">
+    function isValidLetter(ch)
+    {
+      ch = ch.toLowerCase();
+      if (ch >= 'a' && ch <= 'z')
+        return true;
+      if (ch == '-' || ch == ' ')
+        return true;
+      return false;
+    }
+    function isValidName(name)
+    {
+      for (var i = 0; i < name.length; i++) {
+        var c = name.charAt(i);
+        if (!isValidLetter(c)) {
+          return false;
+        }
+      }
+      return true;
+    }
+    function isValidAge(agetotest)
+    {
+      if (isNaN(agetotest))
+        return false;
+      var age = parseFloat(agetotest);
+      return age >= 0 && age < 100;
+    }
+    function isValidPostCode(code)
+    {
+      var re = /^[1-9][0-9]{3} ?[a-z]{2}$/i;
+      return re.test(code);
+    }
+    function isValidBloodType(bloodtype)
+    {
+      var re = new RegExp("^(a|b|ab|0)(\\+|-)$", "i");
+      //var re = /^(a|b|ab|0)(\+|-)$/i;
+      return re.test(bloodtype);
+    }
+
+    function validate()
+    {
+      var dataok = true;
+      var errorstring = "";
+      var elementinerror = null;
+      var fn = persondata.firstname.value;
+      if (fn.length == 0) {
+        errorstring += "Empty first name<br>";
+        dataok = false;
+        if (elementinerror == null)
+          elementinerror = persondata.firstname;
+      }
+      else if (!isValidName(fn)) {
+        errorstring += "Illegal characters in first name<br>";
+        dataok = false;
+        if (elementinerror == null)
+          elementinerror = persondata.firstname;
+      }
+
+      var ln = persondata.lastname.value;
+      if (ln.length == 0) {
+        errorstring += "Empty last name<br>";
+        dataok = false;
+        if (elementinerror == null)
+          elementinerror = persondata.lastname;
+      } else if (!isValidName(ln)) {
+        errorstring += "Illegal characters in last name<br>";
+        dataok = false;
+        if (elementinerror == null)
+          elementinerror = persondata.lastname;
+      }
+
+      var pcode = persondata.postalcode.value;
+      if (pcode.length == 0) {
+        errorstring += "Empty Postal code<br>";
+        dataok = false;
+        if (elementinerror == null)
+          elementinerror = persondata.postalcode;
+      }
+      else if (!isValidPostCode(pcode)) {
+        errorstring += "Invalid Postal Code<br>";
+        dataok = false;
+        if (elementinerror == null)
+          elementinerror = persondata.postalcode;
+      }
+
+      var age = persondata.age.value;
+      if (age.length == 0) {
+        errorstring += "Empty age<br>";
+        dataok = false;
+        if (elementinerror == null)
+          elementinerror = persondata.age;
+      }
+      else if (!isValidAge(age)) {
+        errorstring += "Illegal age<br>";
+        dataok = false;
+        if (elementinerror == null)
+          elementinerror = persondata.age;
+      }
+
+      var btype = persondata.bloodtype.value;
+      if (btype.length == 0) {
+        errorstring += "Empty blood type<br>";
+        dataok = false;
+        if (elementinerror == null)
+          elementinerror = persondata.bloodtype;
+      }
+      else if (!isValidBloodType(btype)) {
+        errorstring += "Invalid Blood type<br>";
+        dataok = false;
+        if (elementinerror == null)
+          elementinerror = persondata.bloodtype;
+      }
+
+      if (!dataok) {
+        document.getElementById("errorlist").innerHTML = errorstring;
+        elementinerror.focus();
+      }
+      return dataok;
+    }    
+  </script>
+</head>
+<body>
+  <h2>
+    Exercise 15</h2>
+  <form action="success.html" name="persondata" onsubmit="return validate()">
+  <table>
+    <tr>
+      <td>
+        First Name:
+      </td>
+      <td>
+        <input type="text" name="firstname" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Last Name:
+      </td>
+      <td>
+        <input type="text" name="lastname" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Postal Code:
+      </td>
+      <td>
+        <input type="text" name="postalcode" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Age
+      </td>
+      <td>
+        <input type="text" name="age" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Blood type
+      </td>
+      <td>
+        <input type="text" name="bloodtype" />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center">
+        <input type="submit" style="font-size: larger" name="submit" value="Submit data" />
+      </td>
+    </tr>
+  </table>
+  <div id="errorlist" style="font-weight: bold; color: red;">
+  </div>
+  </form>
+</body>
+</html>

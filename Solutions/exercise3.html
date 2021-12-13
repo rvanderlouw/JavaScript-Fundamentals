@@ -1,0 +1,30 @@
+<html>
+<head>
+  <title>Exercise 3</title>
+</head>
+<body>
+  <h2>
+    Exercise 3</h2>
+  <script type="text/javascript">
+    var mark = 0;
+    while (mark < 1 || mark > 10) {
+      do {
+        mark = window.prompt("Enter a mark from 1 to 10");
+        if (isNaN(mark)) {
+          alert("that is not a number");
+        }
+      } while (isNaN(mark));
+      mark = parseInt(mark);
+    }
+    document.write("the number is " + mark + "<br>");
+    if (mark >= 6) {
+      document.write("Success<br>");
+    }
+    else {
+      document.write("Too bad...<br>");
+    }
+        
+  </script>
+  This is the last line of the page
+</body>
+</html>

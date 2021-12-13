@@ -1,0 +1,62 @@
+<html>
+<head>
+  <title>Exercise 12</title>
+  <style type="text/css">
+    img.small
+    {
+      margin-right: 12px;
+      cursor: pointer;
+      /* optional part: */
+      /* display:none; */ 
+    }
+  </style>
+  <script type="text/javascript">
+    var currentimage=0;
+    function showimage(e)
+    {
+      document.getElementById("largepicture").src = e.target.src;
+      document.getElementById("largepicture").style.display = "";
+    }
+    function start()
+    {
+      document.getElementById("largepicture").style.display = "none";
+      //currentimage = 0;
+      for (var i = 0; i < document.images.length - 1; i++) {
+        document.images[i].addEventListener('click',showimage);
+      }
+    }
+    function next()
+    {
+      currentimage++;
+      if (currentimage == document.images.length - 1)
+        currentimage = 0;
+      document.getElementById("largepicture").src = document.images[currentimage].src;
+      document.getElementById("largepicture").style.display = "";
+    }
+    function previous()
+    {
+      currentimage--;
+      if (currentimage < 0)
+        currentimage = document.images.length - 2;
+      document.getElementById("largepicture").src = document.images[currentimage].src;
+      document.getElementById("largepicture").style.display = "";
+    }
+  </script>
+</head>
+<body onload="start()">
+  <h2>
+    Exercise 12</h2>
+  <img class="small" id="img1" src="picture1.jpg" alt="" width="64" height="48" />
+  <img class="small" id="img2" src="picture2.jpg" alt="" width="64" height="48" />
+  <img class="small" id="img3" src="picture3.jpg" alt="" width="64" height="48" />
+  <img class="small" id="img4" src="picture4.jpg" alt="" width="64" height="48" />
+  <input type="button" value="Next" onclick="next()" /> &nbsp; &nbsp;
+  <input type="button" value="Previous" onclick="previous()" /> 
+  <p>
+    <img id="largepicture" src="" alt="" width="1024" height="768" />
+  </p>
+  <p>
+    This is the last line of the page
+  </p>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+<head>
+  <title>Exercise 17</title>
+  <script type="text/javascript">
+
+    function start()
+    {
+      try {
+        document.getElementById("unknown").innerHTML = "this text will not be shown";
+      }
+      catch (err) {
+        alert("Problem: " + err);
+      }
+      document.getElementById("div1").innerHTML = "this is new text";
+    }
+  </script>
+</head>
+<body onload="start()">
+  <h2>
+    Exercise 17</h2>
+  <h4>
+    Some new text should appear below</h4>
+  <div id="div1">
+  </div>
+  <p>
+    This is the last line of the page
+  </p>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<html>
+<head>
+  <title>Exercise 16</title>
+  <style type="text/css">
+    input
+    {
+      margin-right: 20px;
+    }
+    span#timelabel
+    {
+      color: White;
+      background-color: Blue;
+      font-weight: bold;
+      font-family: Verdana;
+      font-size: 10pt;
+      padding: 3px 20px 3px 24px;
+    }
+  </style>
+  <script type="text/javascript">
+    var timerid = 0;
+    function startTime()
+    {
+      timerid = window.setInterval(showTime, 1000);
+    }
+    function showTime()
+    {
+      var dt = new Date();
+      var ts = dt.toLocaleTimeString();
+      document.getElementById("timelabel").innerHTML = ts;
+    }
+    function cancelTime()
+    {
+      window.clearInterval(timerid);
+      document.getElementById("timelabel").innerHTML = "";
+    }
+  </script>
+</head>
+<body>
+  <h2>
+    Exercise 16</h2>
+  <form action="">
+  <input type="button" value="Start clock" onclick="startTime()" />
+  <input type="button" value="Stop clock" onclick="cancelTime()" />
+  <span id="timelabel"></span>
+  </form>
+</body>
+</html>

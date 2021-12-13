@@ -1,0 +1,42 @@
+<html>
+<head>
+  <title>Exercise 5</title>
+  <script type="text/javascript">
+    sayHello("Mary");
+    sayHello();
+    alert(cube(10));  // should be 1000
+    alert(readMark(1, 100));
+
+    function sayHello(name)
+    {
+      if (name == null) {
+        name = "stranger";
+      }
+      alert("Hello " + name);
+    }
+    function cube(number)
+    {
+      return number * number * number;
+    }
+    function readMark(min, max)
+    {
+      var mark = 0;
+      while (mark < min || mark > max) {
+        do {
+          mark = window.prompt("Enter a mark from " + min + " to " + max);
+          if (isNaN(mark)) {
+            alert("that is not a number");
+          }
+        } while (isNaN(mark));
+        mark = parseInt(mark);
+      }
+      return mark;
+    }
+   </script>
+</head>
+<body>
+  <h2>
+    Exercise 5</h2>
+  This is the last line of the page
+</body>
+</html>

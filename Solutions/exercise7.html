@@ -1,0 +1,30 @@
+<html>
+<head>
+  <title>Exercise 7</title>
+  <script type="text/javascript">
+    function start()
+    {
+      document.title = "This is a new text from code";
+      document["title"] += "!!";
+      document.bgColor = "lightgreen";
+    }
+    var course = new Object;
+    course.location = "Utrecht";
+    course.length = 3;
+    course["topic"] = "JavaScript";
+  </script>
+</head>
+<body onload="start()">
+  <h2>
+    Exercise 7</h2>
+  <script type="text/javascript">
+    //for (var key in document) {
+    //   document.write(key + ": " + document[key] + "<br />");
+    // }
+    for (var key in course) {
+      document.write(key + ": " + course[key] + "<br />");
+    }
+  </script>
+  This is the last line of the page
+</body>
+</html>
